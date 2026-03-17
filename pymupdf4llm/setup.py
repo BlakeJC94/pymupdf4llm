@@ -55,7 +55,7 @@ setuptools.setup(
     },
     entry_points={
         "console_scripts": [
-            "pymupdf4llm=pymupdf4llm.__main__:main",
+            "pdf4llm=pymupdf4llm.__main__:main",
         ],
     },
 )
