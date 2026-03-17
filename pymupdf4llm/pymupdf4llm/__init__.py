@@ -1,6 +1,9 @@
 import pymupdf
 
-from .versions_file import VERSION, VERSION_TUPLE
+try:
+    from pymupdf4llm.versions_file import VERSION, VERSION_TUPLE
+except ImportError:
+    from .versions_file import VERSION, VERSION_TUPLE
 
 import pymupdf4llm.helpers.pymupdf_rag
 import pymupdf4llm.helpers.document_layout
@@ -21,9 +24,9 @@ def use_layout(yes):
     global _use_layout
     global IdentifyHeaders
     global TocHeaders
-    
+
     _use_layout = yes
-    
+
     if _use_layout:
         # IdentifyHeaders and TocHeaders are not available.
         try:    del IdentifyHeaders
@@ -37,7 +40,7 @@ def use_layout(yes):
         TocHeaders = pymupdf4llm.helpers.pymupdf_rag.TocHeaders
         import pymupdf
         pymupdf._get_layout = None
-            
+
 
 # Always attempt to use Layout by default.
 try:
