@@ -53,4 +53,9 @@ setuptools.setup(
         "Changelog": "https://github.com/pymupdf/pymupdf4llm/blob/main/CHANGES.md",
         "License": "https://github.com/pymupdf/pymupdf4llm/blob/main/LICENSE",
     },
+    entry_points={
+        "console_scripts": [
+            "pymupdf4llm=pymupdf4llm.__main__:main",
+        ],
+    },
 )
